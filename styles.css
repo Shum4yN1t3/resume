@@ -17,47 +17,91 @@ body {
 
 /* Хедер */
 .header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон для матового стеклянного эффекта */
     color: white;
     padding: 10px 0;
-    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1000; /* Достаточно высокий z-index */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    position: relative; /* Меню не фиксированное */
+    backdrop-filter: blur(10px); /* Размытие фона */
+    -webkit-backdrop-filter: blur(10px); /* Поддержка WebKit */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная граница */
 }
 
 .header:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(255, 255, 255, 0.2); /* Более темный при наведении */
 }
 
-/* Раздел "Обо мне" */
-.about {
+/* Секции с матовым стеклом */
+.about, .skills, .projects, .contact, .experience {
     padding: 100px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон для матового стекла */
+    border-radius: 15px; /* Скругленные углы */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    backdrop-filter: blur(10px); /* Размытие фона */
+    -webkit-backdrop-filter: blur(10px); /* Поддержка WebKit */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная граница */
     margin: 20px 0;
-    color: #e0e0e0;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-in-out forwards;
 }
 
-.about h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #00ffcc;
-    animation: fadeInUp 1s ease-in-out;
+/* Раздел "Обо мне" */
+.about {
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    border-radius: 12px; /* Увеличенные скругленные углы */
+    padding: 40px; /* Увеличенные внутренние отступы */
+    margin: 40px 0; /* Увеличенные внешние отступы */
+    color: #e0e0e0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+    backdrop-filter: blur(10px); /* Матовое стекло */
+    -webkit-backdrop-filter: blur(10px); /* Поддержка WebKit */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная граница */
+    position: relative; /* Для использования псевдоэлементов */
 }
 
-.about p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
+
+/* Контейнер для текста с зеленой линией */
+.about-content {
+    position: relative; /* Для использования псевдоэлементов */
+    max-width: 800px; /* Максимальная ширина для удобного чтения */
+    margin: 0 auto; /* Центрирование контента */
+    padding-left: 20px; /* Отступ для начала текста */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+/* Зеленая линия */
+.green-line {
+    position: absolute;
+    left: 0; /* Линия прикрепляется к левому краю контейнера */
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Ширина линии */
+    background: #00ffcc; /* Цвет линии */
+    border-radius: 4px; /* Скругление углов линии */
+}
+
+/* Стили для текста */
+.about-content p {
+    margin-left: 24px; /* Отступ текста от линии */
+    font-size: 1.1em; /* Размер шрифта для описания */
     color: #e0e0e0;
+    line-height: 1.6; /* Высота строки для лучшей читаемости */
+}
+
+/* Стилизация заголовка раздела */
+.about h2 {
+    font-size: 2.2em; /* Увеличенный размер шрифта заголовка */
+    margin-bottom: 20px; /* Увеличенный отступ снизу заголовка */
+    color: #00ffcc;
 }
 
 .about .highlight {
@@ -172,7 +216,7 @@ body {
 .skills {
     padding: 100px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     margin: 20px 0;
     opacity: 0;
@@ -201,7 +245,7 @@ body {
     margin: 10px;
     font-size: 28px;
     padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
@@ -216,7 +260,7 @@ body {
 
 .skills ul li:hover {
     transform: scale(1.1); /* Увеличиваем элемент при наведении */
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный белый фон при наведении */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -234,7 +278,7 @@ body {
 .about, .skills, .projects, .contact, .experience {
     padding: 100px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон для матового стекла */
     border-radius: 8px;
     margin: 20px 0;
     opacity: 0;
@@ -242,11 +286,11 @@ body {
     animation: fadeInUp 1s ease-in-out forwards;
 }
 
-/* Раздел "Опыт работы" */
+/* Раздел "Мои кейсы" */
 .experience {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
-    padding: 100px 20px;
+    padding: 80px 20px; /* Уменьшены отступы */
     text-align: center;
     border-radius: 8px;
     margin: 20px 0;
@@ -256,62 +300,147 @@ body {
 }
 
 .experience h2 {
-    font-size: 2.5em;
+    font-size: 2em; /* Уменьшенный размер шрифта */
     margin-bottom: 20px;
     color: #00ffcc;
     animation: fadeInUp 1s ease-in-out;
 }
 
-/* Стили для блоков опыта работы и GitHub профиля */
-.experience-item,
-.github-profile {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Контейнер для блоков опыта работы */
+.experience-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрирование элементов */
+    gap: 20px; /* Отступ между блоками */
+}
+
+.experience-item {
+    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
+    border-radius: 12px;
+    width: 500px; /* Ширина блока */
+    height: 240px; /* Высота блока */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     cursor: default; /* Убираем курсор текст */
+    overflow: hidden; /* Обрезка содержимого, выходящего за пределы квадрата */
 }
 
-/* Эффект плавного изменения фона и тени при наведении */
-.experience-item:hover,
-.github-profile:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transform: scale(1.03); /* Легкое увеличение при наведении */
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .experience-item {
+        max-width: 100%; /* Устанавливаем ширину 100% для мобильных устройств */
+        padding: 10px; /* Уменьшаем внутренние отступы для мобильных устройств */
+    }
 }
 
-/* Стили для заголовков опыта работы и GitHub профиля */
-.experience-item h3,
-.github-profile h3 {
-    font-size: 2em;
+/* Для мобильных устройств, чтобы избежать перекрытия заголовка */
+@media (max-width: 576px) {
+    .experience-container {
+        margin-top: 10px; /* Уменьшаем отступ сверху для мобильных устройств */
+        gap: 15px; /* Уменьшаем отступы между блоками */
+    }
+}
+/* Корректировка отступов и логотипа на мобильных устройствах */
+@media (max-width: 768px) {
+    .logo {
+        margin-left: -10px; /* Сдвигаем логотип влево для лучшего размещения текста */
+        margin-right: 5px; /* Уменьшаем отступ справа */
+    }
+    .experience-item-content h3 {
+        margin-bottom: 10px; /* Уменьшенный отступ снизу для заголовка */
+    }
+
+    .experience-item-content p {
+        margin-top: 5px; /* Уменьшенный отступ сверху для текста */
+        font-size: 0.9em; /* Уменьшенный размер шрифта текста */
+    }
+}
+/* Для очень маленьких экранов */
+@media (max-width: 576px) {
+    .logo {
+        margin-left: -5px; /* Дополнительное смещение логотипа влево */
+    }
+
+    .experience-item {
+        padding: 8px; /* Дополнительное уменьшение отступов */
+    }
+
+    .experience-container {
+        gap: 10px; /* Дополнительное уменьшение отступов */
+        margin-top: 5px; /* Дополнительное уменьшение отступов сверху */
+    }
+}
+
+.experience-item:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный белый фон при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Легкое увеличение при наведении */
+}
+
+/* Стили для контейнера логотипа и информации */
+.logo-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* Учитываем padding в общей ширине и высоте */
+}
+
+/* Стили для логотипа */
+.logo {
+    flex: 0 0 150px; /* Фиксированная ширина логотипа */
+    height: 150px; /* Высота логотипа */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px; /* Отступ между логотипом и текстом */
+}
+
+.logo img {
+    width: 100%; /* Установка ширины изображения в 100% от контейнера */
+    height: auto; /* Высота автоматически рассчитывается в зависимости от ширины */
+}
+
+/* Стили для разделителя между логотипом и информацией */
+.logo-info::before {
+    content: '';
+    display: block;
+    width: 2px; /* Ширина разделителя */
+    height: 150px; /* Высота разделителя соответствует высоте логотипа */
+    background: #00ffcc; /* Цвет разделителя */
+    margin: 0 20px; /* Отступы по бокам разделителя */
+}
+
+/* Стили для информации */
+.info {
+    text-align: left; /* Выравнивание текста по левому краю */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Вертикальное центрирование текста */
+    width: calc(100% - 170px); /* Учитываем ширину логотипа и отступы */
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
+}
+
+.info h3 {
+    font-size: 1.4em; /* Размер заголовка */
     margin-bottom: 10px;
-}
-
-.experience-item ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-
-/* Стили для ссылок в GitHub профиле */
-.github-profile a {
-    color: #66fcf1;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-.github-profile a:hover {
-    text-decoration: underline;
     color: #00ffcc;
+}
+
+.info p {
+    font-size: 0.9em; /* Размер шрифта описания */
+    color: #e0e0e0;
+    line-height: 1.4; /* Высота строки для лучшей читаемости */
 }
 
 /* Раздел "Контакты" */
 .contact {
     padding: 100px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон для матового стекла */
     border-radius: 8px;
     margin: 20px 0;
     opacity: 0;
@@ -337,7 +466,7 @@ body {
     font-size: 1.5em;
     color: #e0e0e0;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
