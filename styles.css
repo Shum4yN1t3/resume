@@ -416,6 +416,7 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     cursor: pointer; /* Изменяет курсор на указатель при наведении */
 }
+
 /* Стили для разделителя между логотипом и информацией */
 .logo-info::before {
     content: '';
