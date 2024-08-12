@@ -325,6 +325,10 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     cursor: default; /* Убираем курсор текст */
     overflow: hidden; /* Обрезка содержимого, выходящего за пределы квадрата */
+    display: block; /* Делает элемент блочным для ссылок */
+    text-decoration: none; /* Убирает подчеркивание ссылок */
+    color: inherit; /* Наследует цвет от родительского элемента */
+    margin-bottom: 15px; /* Отступ между кейсами */
 }
 
 /* Медиазапросы для мобильных устройств */
@@ -403,7 +407,15 @@ body {
     width: 100%; /* Установка ширины изображения в 100% от контейнера */
     height: auto; /* Высота автоматически рассчитывается в зависимости от ширины */
 }
-
+.github-link .logo-info {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Изменяет курсор на указатель при наведении */
+}
 /* Стили для разделителя между логотипом и информацией */
 .logo-info::before {
     content: '';
