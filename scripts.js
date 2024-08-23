@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -28,26 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
         easing: 'ease-in-out',
         once: true
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Обработка клика по элементу email
     const emailElement = document.getElementById('email-copy');
     const notification = document.getElementById('notification');
-    
-    emailElement.addEventListener('click', () => {
-        // Копируем текст в буфер обмена
-        const emailText = emailElement.textContent.replace('Почта: ', '').trim();
-        navigator.clipboard.writeText(emailText).then(() => {
-            // Показываем уведомление
-            notification.textContent = 'Email скопирован!';
-            notification.style.display = 'block';
-            
-            // Скрываем уведомление через 2 секунды
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 2000);
-        }).catch(err => {
-            console.error('Ошибка копирования в буфер обмена: ', err);
+
+    if (emailElement && notification) {
+        emailElement.addEventListener('click', () => {
+            // Копируем текст в буфер обмена
+            const emailText = emailElement.textContent.replace('Почта: ', '').trim();
+            navigator.clipboard.writeText(emailText).then(() => {
+                // Показываем уведомление
+                notification.textContent = 'Email скопирован!';
+                notification.style.display = 'block';
+                
+                // Скрываем уведомление через 2 секунды
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Ошибка копирования в буфер обмена: ', err);
+            });
         });
-    });
+    } else {
+        console.error('Элемент email-copy или notification не найден.');
+    }
 });

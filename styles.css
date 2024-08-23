@@ -495,20 +495,21 @@ body {
 }
 
 
-.notification {
-    display: none; /* Скрыть уведомление по умолчанию */
-    position: fixed; /* Фиксированное положение */
-    bottom: 20px; /* Отступ снизу */
-    left: 50%; /* Центрирование по горизонтали */
-    transform: translateX(-50%); /* Корректировка центрирования */
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
-    color: #fff; /* Белый текст */
-    padding: 10px 20px; /* Отступы */
-    border-radius: 5px; /* Скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
-    font-size: 16px; /* Размер шрифта */
-    z-index: 1000; /* Убедитесь, что уведомление поверх других элементов */
-    transition: opacity 0.5s ease, visibility 0.5s ease; /* Плавное появление и исчезновение */
+/* Стили для уведомления */
+#notification {
+    position: fixed;
+    top: 20px; /* Расстояние от верхней части страницы */
+    left: 50%; /* Смещение к центру */
+    transform: translateX(-50%); /* Центрирование уведомления по горизонтали */
+    background-color: #00ffcc; /* Полупрозрачный зеленый фон */
+    color: rgba(0, 0, 0); /* Белый цвет текста */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none; /* Изначально скрыто */
+    z-index: 1000; /* уведомление поверх других элементов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для эффекта */
+    transition: opacity 0.5s ease; /* Плавное появление/исчезновение */
 }
 
 
