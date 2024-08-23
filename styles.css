@@ -258,12 +258,6 @@ body {
     opacity: 1; /* Показать элементы */
 }
 
-.skills ul li:hover {
-    transform: scale(1.1); /* Увеличиваем элемент при наведении */
-    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный белый фон при наведении */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
 /* Убраны эффекты курсора для текста внутри навыков */
 .skills ul li span {
     background: linear-gradient(to right, #00ffcc, #00cc99);
@@ -377,7 +371,7 @@ body {
     }
 }
 
-.experience-item:hover {
+.github-link:hover {
     background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный белый фон при наведении */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     transform: scale(1.02); /* Легкое увеличение при наведении */
@@ -484,7 +478,12 @@ body {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default; /* Убираем курсор текст */
+    cursor: pointer; /* Убираем курсор текст */
+}
+/* Стили для кнопки почты */
+.contact-item.email {
+    cursor: pointer; /* Указатель курсора при наведении */
+    transform: scale(1.05);
 }
 
 /* Убрано изменение курсора на кликабельность для контактов */
@@ -493,6 +492,21 @@ body {
     color: #0e0e0e;
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для уведомления */
+.notification {
+    background-color: #00ffcc;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00ffcc;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none; /* Скрыть по умолчанию */
+    z-index: 1000; /* Обеспечить отображение поверх других элементов */
 }
 
 /* Анимации */
