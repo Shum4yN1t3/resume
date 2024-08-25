@@ -28,6 +28,10 @@
         </div>
     </header>
 
+
+
+
+
     <section id="home" class="home" data-aos="zoom-in">
         <div class="container">
             <h1 data-aos="fade-up">DevOps инженер</h1>
@@ -37,20 +41,28 @@
         </div>
     </section>
 
+
+
+
+
     <section id="about" class="about" data-aos="fade-up" data-aos-delay="100">
         <div class="container">
             <h2 data-aos="flip-left">Обо мне</h2>
             <div class="about-content">
                 <!-- Зеленая линия -->
                 <div class="green-line"></div>
-                <p data-aos="flip-left" data-aos-delay="200">
-                    Как амбициозный DevOps инженер с твердыми навыками работы с <span class="highlight">Linux</span>, я успешно управляю серверными системами, оптимизирую их производительность и автоматизирую процессы с помощью <span class="highlight">Ansible</span>. Мой опыт включает глубокое погружение в администрирование <span class="highlight">Linux-систем</span> и участие в чемпионате <span class="highlight">"Профессионалы"</span> в области <span class="highlight">сетевого и системного администрирования</span>.
+                <p data-aos="zoom-in-up" data-aos-duration="800" data-aos-easing="ease-out-back">
+                    С самого детства меня увлекало все, что связано с техникой и компьютерами. Я мог часами разбирать и собирать <span class="highlight">умные железяки</span>, понимая, как они работают. Именно эта страсть привела меня в Санкт-Петербург, где я поступил в <span class="highlight">Бонч</span>, чтобы стать профессионалом в IT. Углубляясь в мир <span class="highlight">Linux</span> и сетевых технологий, я получил уникальный опыт, который впоследствии применил на практике в <span class="highlight">Газпроме</span>, решая сложные задачи и оптимизируя инфраструктуру.
                     
-                    Я постоянно стремлюсь к обучению и адаптации к новым технологиям, что позволяет мне решать задачи с максимальной эффективностью. Мой серьезный подход к работе и стремление к профессиональному росту обеспечивают успешное выполнение проектов и вклад в развитие компаний. <span class="highlight">Каждый проект</span> для меня — это возможность реализовать свои идеи и улучшить результаты.
-                </p>
+                    Теперь я здесь, на этом сайте, готов к новым вызовам. Я убежден, что каждый проект — это возможность применить свои знания и сделать что-то значимое. Работая с командами и совершенствуя процессы с помощью <span class="highlight">Ansible</span>, я стремлюсь к тому, чтобы наши совместные достижения говорили сами за себя. Ведь в конце концов, в жизни главное — найти своё дело и быть на него готовым на все сто.
+                </p>                              
             </div>
         </div>
     </section>
+
+
+
+
 
     <section id="skills" class="skills">
         <div class="container">
@@ -68,34 +80,75 @@
         </div>
     </section>
 
-    <section class="experience">
-        <h2>Мои кейсы</h2>
-        <div class="experience-container">
-            <div class="experience-item">
-                <div class="logo-info">
-                    <div class="logo">
-                        <img src="/pictures/gazprom-logo.svg" alt="Газпром">
-                    </div>
-                    <div class="info">
-                        <h3>Ansible</h3>
-                        <p>Внедрил Ansible для автоматизации рутинных задач в ООО "Газпром Трансгаз СПб". Разработал и поддерживал плейбуки Ansible</p>
-                    </div>
+
+
+
+
+    <section class="experience" id="experience">
+    <h2>Мои кейсы</h2>
+    <div class="experience-container">
+        <div class="experience-item" onclick="openModal('modal-ansible')">
+            <div class="logo-info">
+                <div class="logo">
+                    <img src="/pictures/gazprom-logo.svg" alt="Газпром">
+                </div>
+                <div class="info">
+                    <h3>Ansible</h3>
+                    <p>Внедрил Ansible для автоматизации рутинных задач в ООО "Газпром Трансгаз СПб". Разработал и поддерживал плейбуки Ansible</p>
                 </div>
             </div>
-            <a href="https://github.com/MaMiki-dot" target="_blank" class="experience-item  github-link">
-                <div class="logo-info">
-                    <div class="logo">
-                        <img src="/pictures/github-logo.svg" alt="Логотип GitHub">
-                    </div>
-                    <div class="info">
-                        <h3>GitHub</h3>
-                        <p>Здесь лежат проекты с Яндекс курсов по веб-разработке и другие чудеса.</p>
-                    </div>
-                </div>
-            </a>
-            <!-- Добавьте другие блоки опыта работы здесь -->
         </div>
-    </section>
+        <div class="experience-item" onclick="openModal('modal-github')">
+            <div class="logo-info">
+                <div class="logo">
+                    <img src="/pictures/github-logo.svg" alt="Логотип GitHub">
+                </div>
+                <div class="info">
+                    <h3>GitHub</h3>
+                    <p>Здесь лежат проекты с Яндекс курсов по веб-разработке и другие чудеса. Мой профиль можно найти здесь</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно для Ansible -->
+<div id="modal-ansible" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-ansible')">&times;</span>
+        <div class="modal-logo-info">
+            <div class="modal-logo">
+                <img src="/pictures/gazprom-logo.svg" alt="Газпром">
+            </div>
+            <div class="modal-info">
+                <h3>Ansible на практике</h3>
+                <p>
+                    В <span class="highlight">Газпроме</span> я занимался значительным улучшением инфраструктуры компании. Например, я автоматизировал процесс развертывания серверов, внедрив <span class="highlight">Ansible</span>, что позволило сократить время на настройку и уменьшить количество ошибок. Внедрил автоматическое обновление конфигураций серверов и управление резервным копированием данных, что повысило надежность и упрощение администрирования.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для GitHub -->
+<div id="modal-github" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-github')">&times;</span>
+        <div class="modal-logo-info">
+            <div class="modal-logo">
+                <img src="/pictures/github-logo.svg" alt="Логотип GitHub">
+            </div>
+            <div class="modal-info">
+                <h3>Мои проекты на GitHub</h3>
+                <p>В моем <a href="https://github.com/Shum4yN1t3">GitHub профиле</a> вы найдете укромный уголок с моими проектами, включая работы из <span class="highlight">Яндекс-курсов</span> и другие эксперименты. На данный момент я активно работаю над <span class="highlight">Flask-проектом</span>, который интегрирован с <span class="highlight">Jenkins</span> и <span class="highlight">Docker</span>. Эти проекты демонстрируют мой опыт в создании веб-приложений и управления контейнерами, а также умение работать с современными инструментами DevOps.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    
 
     <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="500">
         <div class="container">

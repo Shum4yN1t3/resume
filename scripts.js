@@ -60,3 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Элемент email-copy или notification не найден.');
     }
 });
+
+
+
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    var content = modal.querySelector('.modal-content');
+
+    // Получаем размер и позицию элемента, на который был клик
+    var rect = event.currentTarget.getBoundingClientRect();
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Устанавливаем начальное положение и масштаб модального окна
+    content.style.transform = `translate(${rect.left}px, ${rect.top + scrollTop}px) scale(0.5)`;
+    content.style.opacity = "0";
+
+    // Показать модальное окно
+    modal.style.display = "block";
+
+    // Анимация открытия модального окна
+    setTimeout(() => {
+        content.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+        content.style.transform = "translate(0, 0) scale(1)";
+        content.style.opacity = "1";
+    }, 10);
+}
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    var content = modal.querySelector('.modal-content');
+
+    // Анимация закрытия
+    content.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+    content.style.transform = "scale(0.5)";
+    content.style.opacity = "0";
+
+    // Скрыть модальное окно после завершения анимации
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 500);
+}
+
