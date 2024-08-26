@@ -60,6 +60,9 @@ body {
     margin: 40px 0; /* Увеличенные внешние отступы */
     color: #e0e0e0;
     opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-in-out forwards;
     backdrop-filter: blur(10px); /* Матовое стекло */
@@ -68,9 +71,22 @@ body {
     position: relative; /* Для использования псевдоэлементов */
 }
 
+/* Контейнер для текста и фото */
+.about-text-photo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px; /* Пробел между текстом и фото */
+}
+
+.about-text {
+    flex: 2;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
 
 /* Контейнер для текста с зеленой линией */
-.about-content {
+.about-content {  
     position: relative; /* Для использования псевдоэлементов */
     max-width: 800px; /* Максимальная ширина для удобного чтения */
     margin: 0 auto; /* Центрирование контента */
@@ -97,6 +113,76 @@ body {
     line-height: 1.6; /* Высота строки для лучшей читаемости */
 }
 
+
+/* Стили для фото */
+.about-photo-wrapper {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-photo, .shadow-photo {
+    width: 100%;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.main-photo {
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.shadow-photo {
+    top: 15px; /* Смещение вниз */
+    left: 15px; /* Смещение влево */
+    z-index: 1;
+    opacity: 0.5;
+}
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; /* Располагаем элементы один под другим */
+        align-items: center; /* Выравнивание по центру */
+    }
+    
+    .about-text-photo-wrapper {
+        flex-direction: column; /* Располагаем текст и фото вертикально */
+        align-items: center; /* Выравнивание по центру */
+        gap: 20px; /* Пробел между текстом и фото */
+    }
+    
+    .about-photo-wrapper {
+        max-width: 150px; /* Максимальная ширина фото на мобильных устройствах */
+    }
+    
+    .about-content {
+        text-align: center; /* Выравнивание текста по центру */
+    }
+}
+
+/* Контактная информация */
+.about .contact-info {
+    font-size: 1.2em;
+    color: #e0e0e0;
+    margin-top: 20px;
+}
+
+.about .contact-info a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.about .contact-info a:hover {
+    color: #00ffcc;
+    transform: scale(1.05);
+}
+
 /* Стилизация заголовка раздела */
 .about h2 {
     font-size: 2.2em; /* Увеличенный размер шрифта заголовка */
@@ -119,23 +205,7 @@ body {
     color: #00cc99;
 }
 
-.about .contact-info {
-    font-size: 1.2em;
-    color: #e0e0e0;
-    margin-top: 20px;
-}
 
-.about .contact-info a {
-    color: #66fcf1;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.about .contact-info a:hover {
-    color: #00ffcc;
-    transform: scale(1.05);
-}
 
 /* Навигация */
 .nav ul {
