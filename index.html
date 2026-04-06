@@ -1764,9 +1764,11 @@ function initThreeTopology(){
   renderer.setClearColor(0x000000,0);
 
   // Lights
-  scene.add(new THREE.AmbientLight(0x404060,.7));
-  const dl=new THREE.DirectionalLight(0xffffff,.9);dl.position.set(5,12,8);scene.add(dl);
-  const pl=new THREE.PointLight(0xa78bfa,.4,60);pl.position.set(0,10,0);scene.add(pl);
+  scene.add(new THREE.AmbientLight(0x606880,1.2));
+  const dl=new THREE.DirectionalLight(0xffffff,1.0);dl.position.set(5,15,8);scene.add(dl);
+  const dl2=new THREE.DirectionalLight(0xffffff,.5);dl2.position.set(-6,10,-5);scene.add(dl2);
+  const pl=new THREE.PointLight(0xa78bfa,.5,60);pl.position.set(0,10,0);scene.add(pl);
+  const hl=new THREE.HemisphereLight(0x8888cc,0x222244,.6);scene.add(hl);
 
   // ── WORLD MAP FLOOR (dot-matrix) ──
   const mapPts=[
