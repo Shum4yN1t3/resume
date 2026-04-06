@@ -641,7 +641,7 @@ button{font-family:inherit;cursor:none;border:none;background:none}
   .photo-frame{width:200px;margin:0 auto}
   .bento{grid-template-columns:repeat(2,1fr)}
   .bento-wide{grid-column:span 2}
-  #three-wrap{height:50vh}
+  #three-wrap{height:75vh}
   .topo-status{flex-wrap:wrap;justify-content:center;gap:8px}
 }
 @media(max-width:768px){
@@ -659,7 +659,7 @@ button{font-family:inherit;cursor:none;border:none;background:none}
   .tl-dot{left:-21px}
   .proj-arch{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr!important}
-  #three-wrap{height:40vh}
+  #three-wrap{height:80vh}
   .bento{grid-template-columns:1fr}
   .bento-wide{grid-column:span 1}
   .topo-status{bottom:8px;gap:6px}
@@ -672,7 +672,7 @@ button{font-family:inherit;cursor:none;border:none;background:none}
   .proj-arch{grid-template-columns:1fr}
   .edu-row{grid-template-columns:1fr;gap:4px}
   .footer-in{flex-direction:column;text-align:center}
-  #three-wrap{height:35vh}
+  #three-wrap{height:85vh}
   .hr-btn span{display:none}
 }
 
@@ -2033,7 +2033,8 @@ function initThreeTopology(){
   function hidePanel(){if(panel){panel.classList.remove('visible');hovIdx=-1}}
 
   // ── ORBIT CAMERA CONTROLS (drag to rotate, wheel to zoom) ──
-  let camTheta=0,camPhi=Math.PI/4,camDist=25;
+  const isMobile=window.innerWidth<=768;
+  let camTheta=0,camPhi=isMobile?Math.PI/3.5:Math.PI/4,camDist=isMobile?18:25;
   const CAM_MIN_DIST=12,CAM_MAX_DIST=40,CAM_MIN_PHI=.15,CAM_MAX_PHI=Math.PI/2-.05;
   let isDragging=false,dragStartX=0,dragStartY=0,dragStartTheta=0,dragStartPhi=0;
 
