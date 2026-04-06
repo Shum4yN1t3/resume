@@ -465,7 +465,10 @@ button{font-family:inherit;cursor:none;border:none;background:none}
 #three-wrap canvas{width:100%!important;height:100%!important;display:block}
 .topo-status{
   position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
-  display:flex;gap:20px;z-index:5;
+  display:flex;gap:12px;z-index:5;
+}
+@media(max-width:480px){
+  .topo-status{display:grid;grid-template-columns:repeat(3,auto);gap:6px;justify-content:center}
 }
 .topo-dc{
   display:flex;align-items:center;gap:7px;
@@ -642,7 +645,7 @@ button{font-family:inherit;cursor:none;border:none;background:none}
   .bento{grid-template-columns:repeat(2,1fr)}
   .bento-wide{grid-column:span 2}
   #three-wrap{height:75vh}
-  .topo-status{flex-wrap:wrap;justify-content:center;gap:8px}
+  .topo-status{flex-wrap:wrap;justify-content:center;gap:10px}
 }
 @media(max-width:768px){
   .nav-in{padding:10px 16px;border-radius:16px}
