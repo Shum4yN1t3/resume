@@ -929,7 +929,7 @@ html.hr-mode button{cursor:auto}
         <div class="about-meta rv d2">
           <div class="meta-i">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span data-i18n="about.city">Санкт-Петербург</span>
+            <span data-i18n="about.city">Ереван · UTC+4</span>
           </div>
           <div class="meta-i">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -1120,21 +1120,6 @@ html.hr-mode button{cursor:auto}
       </div>
     </div>
 
-    <!-- THREE.JS TOPOLOGY -->
-    <div id="three-wrap" class="rv d1">
-      <canvas id="topo-c"></canvas>
-      <div class="topo-panel" id="topo-panel"></div>
-      <div class="topo-status">
-        <div class="topo-dc"><span class="st"></span>Germany</div>
-        <div class="topo-dc"><span class="st"></span>Netherlands</div>
-        <div class="topo-dc"><span class="st"></span>Switzerland</div>
-        <div class="topo-dc"><span class="st"></span>Spain</div>
-        <div class="topo-dc"><span class="st"></span>United States</div>
-        <div class="topo-dc"><span class="st"></span>Russia</div>
-        <div class="topo-dc"><span class="st"></span>Sweden</div>
-      </div>
-    </div>
-
     <div class="gh-card rv d2" role="link" tabindex="0" onclick="window.open('https://github.com/Shum4yN1t3','_blank')" onkeydown="if(event.key==='Enter')window.open('https://github.com/Shum4yN1t3','_blank')">
       <div class="gh-img"><img src="pictures/github-logo.svg" alt=""></div>
       <div class="gh-body">
@@ -1153,6 +1138,21 @@ html.hr-mode button{cursor:auto}
   <div class="wrap">
     <div class="sec-lab"><span data-i18n="exp.lab">04 / опыт</span></div>
     <h2 class="sec-h"><span data-i18n="exp.title1">Опыт </span><span class="acc" data-i18n="exp.title2">работы</span></h2>
+
+    <!-- THREE.JS TOPOLOGY -->
+    <div id="three-wrap" class="rv d1" style="margin-bottom:48px">
+      <canvas id="topo-c"></canvas>
+      <div class="topo-panel" id="topo-panel"></div>
+      <div class="topo-status">
+        <div class="topo-dc"><span class="st"></span>Germany</div>
+        <div class="topo-dc"><span class="st"></span>Netherlands</div>
+        <div class="topo-dc"><span class="st"></span>Switzerland</div>
+        <div class="topo-dc"><span class="st"></span>Spain</div>
+        <div class="topo-dc"><span class="st"></span>United States</div>
+        <div class="topo-dc"><span class="st"></span>Russia</div>
+        <div class="topo-dc"><span class="st"></span>Sweden</div>
+      </div>
+    </div>
 
     <div class="timeline">
       <!-- Fornex SRE -->
@@ -2130,7 +2130,7 @@ const i18n={
     'about.p1':'С детства увлекался всем, что связано с IT. Путь начал в 17 лет — с момента установки Linux как основного рабочего места. Поступил в <strong>СПбГУТ им. Бонч-Бруевича</strong> — углубился в Linux и сети.',
     'about.p2':'Сейчас в <strong>Fornex Hosting</strong> эксплуатирую парк KVM из ~145 гипервизоров на bare metal в семи странах (DE, NL, CH, ES, SE, US, RU). Большая часть работы — убрать ручную рутину: пайплайны, Ansible-роли и внутренние пакеты, которые сами доходят до всего парка. On-call по продакшену: инциденты, отладка производительности, работа с дата-центрами.',
     'about.p3':'Параллельно развиваю собственный <strong>Production K8s Cluster</strong> — полностью self-hosted, GitOps через ArgoCD, всё задекларировано в git.',
-    'about.city':'Санкт-Петербург','about.remote':'Удалённая работа','about.work':'Full-time / проектная работа',
+    'about.city':'Ереван · UTC+4','about.remote':'Удалённая работа','about.work':'Full-time / проектная работа',
     'skills.lab':'02 / навыки','skills.title1':'Технический ','skills.title2':'стек',
     'skills.infra':'Инфраструктура','skills.prog':'Программирование','skills.db':'Базы данных / Secrets',
     'proj.lab':'03 / проекты','proj.period':'Март 2025 — настоящее время',
@@ -2174,7 +2174,7 @@ const i18n={
     'about.p1':'I\'ve been passionate about IT since childhood. Started my journey at 17 — by installing Linux as my primary workstation. Enrolled at <strong>SPbSUT (Bonch-Bruevich)</strong> — dived deep into Linux and networking.',
     'about.p2':'Currently at <strong>Fornex Hosting</strong> I run a KVM fleet of ~145 hypervisors on bare metal in seven countries (DE, NL, CH, ES, SE, US, RU). Most of my work is eliminating toil — pipelines, Ansible roles and internal packages that reach the whole fleet on their own. On-call for production: incident response, performance debugging, data-center coordination.',
     'about.p3':'In parallel, I develop my own <strong>Production K8s Cluster</strong> — fully self-hosted, GitOps via ArgoCD, everything declared in git.',
-    'about.city':'Saint Petersburg','about.remote':'Remote work','about.work':'Full-time / contract work',
+    'about.city':'Yerevan · UTC+4','about.remote':'Remote work','about.work':'Full-time / contract work',
     'skills.lab':'02 / skills','skills.title1':'Technical ','skills.title2':'stack',
     'skills.infra':'Infrastructure','skills.prog':'Programming','skills.db':'Databases / Secrets',
     'proj.lab':'03 / projects','proj.period':'March 2025 — present',
