@@ -917,8 +917,6 @@ html.hr-mode button{cursor:auto}
           С детства увлекался всем, что связано с IT. Путь начал в 17 лет —
           с момента установки Linux как основного рабочего места. Поступил в
           <strong>СПбГУТ им. Бонч-Бруевича</strong> — углубился в Linux и сети.
-          Первый серьёзный опыт получил в <strong>Газпром Трансгаз СПб</strong>,
-          автоматизируя инфраструктуру с Ansible.
         </p>
         <p class="about-p" data-i18n="about.p2">
           Сейчас в <strong>Fornex Hosting</strong> эксплуатирую парк KVM из ~145 гипервизоров на bare metal в семи странах (DE, NL, CH, ES, SE, US, RU). Большая часть работы — убрать ручную рутину: пайплайны, Ansible-роли и внутренние пакеты, которые сами доходят до всего парка. On-call по продакшену: инциденты, отладка производительности, работа с дата-центрами.
@@ -1127,12 +1125,13 @@ html.hr-mode button{cursor:auto}
       <canvas id="topo-c"></canvas>
       <div class="topo-panel" id="topo-panel"></div>
       <div class="topo-status">
-        <div class="topo-dc"><span class="st"></span>Frankfurt DE</div>
-        <div class="topo-dc"><span class="st"></span>Naaldwijk NL</div>
-        <div class="topo-dc"><span class="st"></span>Hünenberg CH</div>
-        <div class="topo-dc"><span class="st"></span>Spain ES</div>
-        <div class="topo-dc"><span class="st"></span>Dallas US</div>
-        <div class="topo-dc"><span class="st"></span>Moscow RU</div>
+        <div class="topo-dc"><span class="st"></span>Germany</div>
+        <div class="topo-dc"><span class="st"></span>Netherlands</div>
+        <div class="topo-dc"><span class="st"></span>Switzerland</div>
+        <div class="topo-dc"><span class="st"></span>Spain</div>
+        <div class="topo-dc"><span class="st"></span>United States</div>
+        <div class="topo-dc"><span class="st"></span>Russia</div>
+        <div class="topo-dc"><span class="st"></span>Sweden</div>
       </div>
     </div>
 
@@ -1216,33 +1215,6 @@ html.hr-mode button{cursor:auto}
             <span class="tag">GitLab CI</span>
             <span class="tag">Ansible</span>
             <span class="tag">Terraform</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gazprom -->
-      <div class="tl-item rv d2">
-        <div class="tl-dot" aria-hidden="true"></div>
-        <div class="tl-card tilt-card">
-          <div class="tl-head">
-            <div class="tl-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><rect x="9" y="12" width="6" height="8"/></svg></div>
-            <div class="tl-meta">
-              <span class="tl-co" data-i18n="exp.gaz.co">Газпром Трансгаз СПб</span>
-              <span class="tl-per" data-i18n="exp.gaz.per">Февраль 2023 — Август 2023</span>
-            </div>
-          </div>
-          <div class="tl-title" data-i18n="exp.gaz.title">Инженер по автоматизации / System Engineer</div>
-          <ul class="tl-list">
-            <li data-i18n="exp.gaz.l1">Ansible-плейбуки для конфигурации рабочих станций — развёртывание <strong>быстрее в 3 раза</strong></li>
-            <li data-i18n="exp.gaz.l2">SSO-интеграция Yandex ID с корпоративным порталом ПАО Газпром</li>
-            <li data-i18n="exp.gaz.l3">Модернизация парка оборудования <strong>в срок 2 недели</strong>, настройка сетевой инфраструктуры</li>
-            <li data-i18n="exp.gaz.l4">Администрирование Linux-машин (ALT Linux), устранение инцидентов L2</li>
-            <li data-i18n="exp.gaz.l5">Работа с корпоративной документацией, взаимодействие с подразделениями по вопросам ИТ-инфраструктуры</li>
-          </ul>
-          <div class="tags">
-            <span class="tag tag-p">Ansible</span>
-            <span class="tag">ALT Linux</span>
-            <span class="tag">SSO / Yandex ID</span>
           </div>
         </div>
       </div>
@@ -1822,37 +1794,15 @@ function initThreeTopology(){
 
   // ── DC DATA ──
   const dcs=[
-    {name:'Frankfurt DE',tag:'First-colo',x:3.5,z:3.5,color:0xa78bfa,
-     stack:['K8s','ArgoCD','Helm','Prometheus','Grafana','Calico'],
-     nodes:3,os:'Ubuntu 22.04',k8s:'v1.35',
-     peers:[{to:1,proto:'WireGuard',lat:'8ms'},{to:2,proto:'WireGuard',lat:'4ms'},{to:4,proto:'IPsec',lat:'120ms'}],
-     metrics:{uptime:'99.97%',rps:'~1.2k',latency:'12ms',pods:'24/24'}},
-    {name:'Naaldwijk NL',tag:'WorldStream',x:-1,z:4,color:0x22d3ee,
-     stack:['K8s','Grafana','Loki','Alertmanager','ingress-nginx'],
-     nodes:2,os:'Ubuntu 22.04',k8s:'v1.35',
-     peers:[{to:0,proto:'WireGuard',lat:'8ms'},{to:2,proto:'WireGuard',lat:'6ms'},{to:4,proto:'IPsec',lat:'115ms'}],
-     metrics:{uptime:'99.95%',rps:'~800',latency:'14ms',pods:'18/18'}},
-    {name:'Hünenberg CH',tag:'Datasource',x:3,z:-1,color:0x34d399,
-     stack:['K8s','Vault','Calico','Sealed Secrets','cert-manager'],
-     nodes:2,os:'Debian 12',k8s:'v1.35',
-     peers:[{to:0,proto:'WireGuard',lat:'4ms'},{to:1,proto:'WireGuard',lat:'6ms'},{to:3,proto:'IPsec',lat:'28ms'}],
-     metrics:{uptime:'99.98%',rps:'~600',latency:'8ms',pods:'14/14'}},
-    {name:'Spain ES',tag:'OVH',x:-3,z:-2.5,color:0xf472b6,
-     stack:['K8s','Cilium','KEDA','MetalLB','Kustomize'],
-     nodes:2,os:'Ubuntu 22.04',k8s:'v1.35',
-     peers:[{to:2,proto:'IPsec',lat:'28ms'},{to:0,proto:'IPsec',lat:'32ms'},{to:5,proto:'IPsec',lat:'45ms'}],
-     metrics:{uptime:'99.93%',rps:'~400',latency:'18ms',pods:'12/12'}},
-    {name:'Dallas US',tag:'Global IP',x:-10,z:1,color:0x818cf8,
-     stack:['K8s','MetalLB','ingress-nginx','Prometheus','NetworkPolicy'],
-     nodes:3,os:'Ubuntu 22.04',k8s:'v1.35',
-     peers:[{to:0,proto:'IPsec',lat:'120ms'},{to:1,proto:'IPsec',lat:'115ms'}],
-     metrics:{uptime:'99.96%',rps:'~2k',latency:'22ms',pods:'20/20'}},
-    {name:'Moscow RU',tag:'3data',x:8,z:3,color:0xfbbf24,
-     stack:['K8s','cert-manager','Sealed Secrets','Cilium'],
-     nodes:2,os:'Debian 12',k8s:'v1.35',
-     peers:[{to:0,proto:'IPsec',lat:'35ms'},{to:1,proto:'IPsec',lat:'42ms'}],
-     metrics:{uptime:'99.90%',rps:'~300',latency:'35ms',pods:'10/10'}}
+    {name:'Germany',tag:'DE',x:3.5,z:3.5,color:0xa78bfa},
+    {name:'Netherlands',tag:'NL',x:-1,z:4,color:0x22d3ee},
+    {name:'Switzerland',tag:'CH',x:3,z:-1,color:0x34d399},
+    {name:'Spain',tag:'ES',x:-3,z:-2.5,color:0xf472b6},
+    {name:'United States',tag:'US',x:-10,z:1,color:0x818cf8},
+    {name:'Russia',tag:'RU',x:8,z:3,color:0xfbbf24},
+    {name:'Sweden',tag:'SE',x:0.5,z:-5,color:0x60a5fa}
   ];
+  const fleetStack=['KVM','Ansible','APT from CI','PowerDNS + dnsdist','IPMI / Redfish'];
 
   const dcGroups=[];
 
@@ -1915,9 +1865,6 @@ function initThreeTopology(){
       new THREE.MeshStandardMaterial({color:dc.color,emissive:dc.color,emissiveIntensity:.3,transparent:true,opacity:.8,metalness:.7,roughness:.3}));
     lbG.add(oct);oct.userData={type:'lb'};
 
-    // LB label
-    const ll=makeLabel('LB','rgba(255,255,255,0.5)',16);ll.scale.set(1.2,.3,1);ll.position.set(0,.5,0);lbG.add(ll);
-
     // Line from LB to DC
     const pts=[lbG.position.clone(),new THREE.Vector3(dc.x,.6,dc.z)];
     const lg=new THREE.BufferGeometry().setFromPoints(pts);
@@ -1929,7 +1876,7 @@ function initThreeTopology(){
 
   // ── INTER-DC CONNECTIONS ──
   const connections=[];
-  const connPairs=[[0,1],[0,2],[1,2],[0,4],[2,3],[0,5],[3,4],[1,4],[3,5]];
+  const connPairs=[[0,1],[0,2],[1,2],[0,4],[2,3],[0,5],[3,4],[1,4],[3,5],[0,6],[1,6]];
   connPairs.forEach(([a,b])=>{
     const pa=new THREE.Vector3(dcs[a].x,.8,dcs[a].z);
     const pb=new THREE.Vector3(dcs[b].x,.8,dcs[b].z);
@@ -2017,21 +1964,12 @@ function initThreeTopology(){
   function showPanel(dc,sx,sy){
     if(!panel)return;
     const hex='#'+dc.color.toString(16).padStart(6,'0');
-    const peersHtml=dc.peers.map(p=>`<div class="tp-peer">↔ ${dcs[p.to].name.split(' ')[0]} <span class="tp-peer-proto">${p.proto}</span> <span class="tp-peer-lat">${p.lat}</span></div>`).join('');
-    const stackHtml=dc.stack.map(s=>`<span class="tp-tag">${s}</span>`).join('');
+    const stackHtml=fleetStack.map(s=>`<span class="tp-tag">${s}</span>`).join('');
     panel.innerHTML=`
       <div class="tp-head"><div class="tp-name" style="color:${hex}">${dc.name}</div></div>
-      <div class="tp-infra">${dc.tag} · ${dc.nodes} nodes · ${dc.os} · K8s ${dc.k8s}</div>
-      <div class="tp-label">Stack</div>
-      <div class="tp-stack">${stackHtml}</div>
-      <div class="tp-label">Peers</div>
-      <div class="tp-peers">${peersHtml}</div>
-      <div class="tp-metrics">
-        <div class="tp-metric"><span class="tp-mv">${dc.metrics.uptime}</span><span class="tp-ml">Uptime</span></div>
-        <div class="tp-metric"><span class="tp-mv">${dc.metrics.rps}</span><span class="tp-ml">RPS</span></div>
-        <div class="tp-metric"><span class="tp-mv">${dc.metrics.latency}</span><span class="tp-ml">Latency</span></div>
-        <div class="tp-metric"><span class="tp-mv">${dc.metrics.pods}</span><span class="tp-ml">Pods</span></div>
-      </div>`;
+      <div class="tp-infra">${dc.tag} · KVM hypervisors · bare metal</div>
+      <div class="tp-label">Fleet tooling</div>
+      <div class="tp-stack">${stackHtml}</div>`;
     // Position: offset from 3D projected point
     let lx=sx+20,ly=sy-80;
     const pw=280,ph=panel.offsetHeight||250;
@@ -2165,7 +2103,7 @@ function initThreeTopology(){
   // Visibility
   const vIO=new IntersectionObserver(es=>{es.forEach(e=>{
     isVis=e.isIntersecting;
-    if(isVis){animate();devLog('OK','Three.js renderer active — '+dcs.length+' datacenters online')}
+    if(isVis){animate();devLog('OK','Three.js renderer active — '+dcs.length+' locations online')}
     else devLog('INFO','Three.js renderer paused (out of viewport)');
   })},{threshold:.05});
   vIO.observe(wrap);
@@ -2176,7 +2114,7 @@ function initThreeTopology(){
   });
 
   devLog('INFO','Three.js topology initialized (WebGL'+(renderer.capabilities.isWebGL2?'2':'1')+')');
-  devLog('OK','All 6 datacenters online — '+cities.length+' traffic sources active');
+  devLog('OK','All '+dcs.length+' locations online — '+cities.length+' traffic sources active');
 }
 
 /* ─── i18n ──────────────────────────────────────────── */
@@ -2189,7 +2127,7 @@ const i18n={
     'hero.cta1':'Смотреть опыт','hero.cta2':'Написать мне','hero.scroll':'Scroll to explore',
     'about.lab':'01 / обо мне',
     'about.title1':'DevOps/SRE инженер ','about.title2':'с любовью к bare metal',
-    'about.p1':'С детства увлекался всем, что связано с IT. Путь начал в 17 лет — с момента установки Linux как основного рабочего места. Поступил в <strong>СПбГУТ им. Бонч-Бруевича</strong> — углубился в Linux и сети. Первый серьёзный опыт получил в <strong>Газпром Трансгаз СПб</strong>, автоматизируя инфраструктуру с Ansible.',
+    'about.p1':'С детства увлекался всем, что связано с IT. Путь начал в 17 лет — с момента установки Linux как основного рабочего места. Поступил в <strong>СПбГУТ им. Бонч-Бруевича</strong> — углубился в Linux и сети.',
     'about.p2':'Сейчас в <strong>Fornex Hosting</strong> эксплуатирую парк KVM из ~145 гипервизоров на bare metal в семи странах (DE, NL, CH, ES, SE, US, RU). Большая часть работы — убрать ручную рутину: пайплайны, Ansible-роли и внутренние пакеты, которые сами доходят до всего парка. On-call по продакшену: инциденты, отладка производительности, работа с дата-центрами.',
     'about.p3':'Параллельно развиваю собственный <strong>Production K8s Cluster</strong> — полностью self-hosted, GitOps через ArgoCD, всё задекларировано в git.',
     'about.city':'Санкт-Петербург','about.remote':'Удалённая работа','about.work':'Full-time / проектная работа',
@@ -2216,13 +2154,6 @@ const i18n={
     'exp.beadmin.l3':'Интеграционные тесты для бинарных артефактов — исключил регрессии перед деплоем',
     'exp.beadmin.l4':'Ansible-роли для автоматического деплоя серверного окружения (PHP, MySQL, Nginx)',
     'exp.beadmin.l5':'<strong>Terraform-интеграция</strong> для управления VPS и DNS через API провайдера',
-    'exp.gaz.co':'Газпром Трансгаз СПб','exp.gaz.per':'Февраль 2023 — Август 2023',
-    'exp.gaz.title':'Инженер по автоматизации / System Engineer',
-    'exp.gaz.l1':'Ansible-плейбуки для конфигурации рабочих станций — развёртывание <strong>быстрее в 3 раза</strong>',
-    'exp.gaz.l2':'SSO-интеграция Yandex ID с корпоративным порталом ПАО Газпром',
-    'exp.gaz.l3':'Модернизация парка оборудования <strong>в срок 2 недели</strong>, настройка сетевой инфраструктуры',
-    'exp.gaz.l4':'Администрирование Linux-машин (ALT Linux), устранение инцидентов L2',
-    'exp.gaz.l5':'Работа с корпоративной документацией, взаимодействие с подразделениями по вопросам ИТ-инфраструктуры',
     'edu.title':'Образование',
     'edu.deg1':'Бакалавр — Информационные системы и технологии',
     'edu.sch1':'СПбГУТ им. проф. М.А. Бонч-Бруевича',
@@ -2240,7 +2171,7 @@ const i18n={
     'hero.cta1':'View experience','hero.cta2':'Contact me','hero.scroll':'Scroll to explore',
     'about.lab':'01 / about',
     'about.title1':'DevOps/SRE engineer ','about.title2':'with love for bare metal',
-    'about.p1':'I\'ve been passionate about IT since childhood. Started my journey at 17 — by installing Linux as my primary workstation. Enrolled at <strong>SPbSUT (Bonch-Bruevich)</strong> — dived deep into Linux and networking. Got my first serious experience at <strong>Gazprom Transgaz SPb</strong>, automating infrastructure with Ansible.',
+    'about.p1':'I\'ve been passionate about IT since childhood. Started my journey at 17 — by installing Linux as my primary workstation. Enrolled at <strong>SPbSUT (Bonch-Bruevich)</strong> — dived deep into Linux and networking.',
     'about.p2':'Currently at <strong>Fornex Hosting</strong> I run a KVM fleet of ~145 hypervisors on bare metal in seven countries (DE, NL, CH, ES, SE, US, RU). Most of my work is eliminating toil — pipelines, Ansible roles and internal packages that reach the whole fleet on their own. On-call for production: incident response, performance debugging, data-center coordination.',
     'about.p3':'In parallel, I develop my own <strong>Production K8s Cluster</strong> — fully self-hosted, GitOps via ArgoCD, everything declared in git.',
     'about.city':'Saint Petersburg','about.remote':'Remote work','about.work':'Full-time / contract work',
@@ -2267,13 +2198,6 @@ const i18n={
     'exp.beadmin.l3':'Integration tests for binary artifacts — eliminated regressions before deploy',
     'exp.beadmin.l4':'Ansible roles for automated server environment deployment (PHP, MySQL, Nginx)',
     'exp.beadmin.l5':'<strong>Terraform integration</strong> for VPS and DNS management via provider API',
-    'exp.gaz.co':'Gazprom Transgaz SPb','exp.gaz.per':'February 2023 — August 2023',
-    'exp.gaz.title':'Automation Engineer / System Engineer',
-    'exp.gaz.l1':'Ansible playbooks for workstation configuration — deployment <strong>3x faster</strong>',
-    'exp.gaz.l2':'SSO integration of Yandex ID with Gazprom corporate portal',
-    'exp.gaz.l3':'Hardware fleet modernization <strong>within 2 weeks deadline</strong>, network infrastructure setup',
-    'exp.gaz.l4':'Linux administration (ALT Linux), L2 incident resolution',
-    'exp.gaz.l5':'Corporate documentation management, cross-department IT infrastructure coordination',
     'edu.title':'Education',
     'edu.deg1':'Bachelor\'s — Information Systems and Technologies',
     'edu.sch1':'SPbSUT (Bonch-Bruevich University)',
